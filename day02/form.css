@@ -8,6 +8,7 @@ main {
     border: 2px solid black;
     width: 60%;
     margin: 30vh auto;
+    padding: 2em;
 }
 
 label, input {
@@ -16,5 +17,5 @@ label, input {
 }
 
 div {
-    margin: 1em;
+    margin: 0.8em 3em;
 }
