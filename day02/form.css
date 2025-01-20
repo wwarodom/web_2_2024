@@ -2,20 +2,43 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Roboto", serif;
 }
 
 main {
     border: 2px solid black;
     width: 60%;
-    margin: 30vh auto;
+    margin: 20vh auto;
     padding: 2em;
+    background: lightblue;
+    border-radius: 0.4em;
+    box-shadow: 5px 5px 5px black;
 }
 
-label, input {
+label{
+    font-size: 1.4rem;
+    width: 100%;  
+}
+
+input {
+    margin-top: 0.4em;
     font-size: 1.4rem;
     width: 100%;
+    padding: 0.1em 0.2em;
+    border-radius: 0.4em;
 }
 
 div {
     margin: 0.8em 3em;
+}
+
+button {
+    font-size: 1.4rem;
+    border-radius: 0.4em;
+    padding: 0.4em 0.8em;
+    box-shadow: 1px 1px 2px black;
+}
+
+.center-button {
+    text-align: center;
 }
