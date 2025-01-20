@@ -1,0 +1,28 @@
+/* External CSS */
+div {
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color:aquamarine;
+}
+
+/* pseudo class */
+a:hover {
+    background: red;
+    font-size: 2rem;
+}
+ 
+
+li:first-child a {
+    background: yellow;
+}
+
+li:nth-child(2) a {
+    color: burlywood;
+}
+
+li:last-child a{
+    color: green;
+}
