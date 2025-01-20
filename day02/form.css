@@ -9,3 +9,12 @@ main {
     width: 60%;
     margin: 30vh auto;
 }
+
+label, input {
+    font-size: 1.4rem;
+    width: 100%;
+}
+
+div {
+    margin: 1em;
+}
