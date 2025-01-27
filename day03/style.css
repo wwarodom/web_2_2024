@@ -20,23 +20,28 @@ header {
     
 } 
 .flex-item {  
-    list-style: none;
-    margin-right: 10px;
+    list-style: none; 
     border: 2px solid green;
 }
 
 .flex-item:first-child {
-   background: lightgoldenrodyellow;
-   margin-right: auto; 
+    /* order: 5; */
+    /* width: 400px; */
+    /* flex-shrink: 1; */
+   background: lightgoldenrodyellow; 
 }
 
 .flex-item:nth-child(4) {
     background: rgb(207, 250, 213); 
+    /* width: 400px; */
+    /* order: 0; */
+    /* flex: auto 1 0; */
+    /* flex-basis: auto;
+    flex-shrink: 1;
+    flex-grow: 1; */
 }
 
-.flex-item:last-child {
-    margin-right: 0;
-    margin-left: auto;
+.flex-item:last-child { 
     background: lightcoral; 
 }
 
