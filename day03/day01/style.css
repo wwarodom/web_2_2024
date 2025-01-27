@@ -38,6 +38,11 @@ header nav ul {
     }
 }
 
+header span {
+    font-size: 1.4rem;
+    color: aliceblue;
+}
+
 
 /* Class selector */
 .bigText {
