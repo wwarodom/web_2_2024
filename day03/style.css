@@ -18,20 +18,16 @@ header {
     height: 92vh;
     border: 2px solid firebrick
     
-}
-
-.flex-container2 {
-    display: flex;
-    column-gap: 0.5em;
-}
-
+} 
 .flex-item {  
     list-style: none;
+    margin-right: 10px;
     border: 2px solid green;
 }
 
 .flex-item:first-child {
-   background: lightgoldenrodyellow; 
+   background: lightgoldenrodyellow;
+   margin-right: auto; 
 }
 
 .flex-item:nth-child(4) {
@@ -39,6 +35,8 @@ header {
 }
 
 .flex-item:last-child {
+    margin-right: 0;
+    margin-left: auto;
     background: lightcoral; 
 }
 
