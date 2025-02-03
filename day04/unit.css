@@ -1,0 +1,18 @@
+html {
+    font-size: 80px;
+}
+
+.parent {
+    font-size: 40px;
+    width: 300px;
+    height: 300px;
+    background: green;
+}
+
+.child {
+    /* width: 50px; */   
+    width: 2em;
+    height: 2em;
+
+    background: yellow;
+}
