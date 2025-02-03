@@ -11,10 +11,26 @@ header {
     gap: 1em;
 }
 
-header div {
+.menu {
     font-size: 2rem;
     line-height: 2em;
     display: none;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 80px;
+}
+
+.line {
+    width: 60px;
+    height: 8px;
+    border-radius: 4px;
+    background: black;
 }
 
 main {
@@ -49,7 +65,7 @@ footer {
         min-height: 80vh;
     }
 
-    header div {
+    .menu {
         display: block;
     }
 
@@ -60,5 +76,9 @@ footer {
     .item-5,
     .item-6 {
         display: block;
+    }
+
+    .hamburger {
+        display: none;
     }
 }
