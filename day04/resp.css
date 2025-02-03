@@ -11,15 +11,23 @@ main {
     /* min-height: 70vh; */
 }
 
-main div, footer {
-    padding: 1em;
+main div { 
+    padding: 2em;
 }
 
 header h1 {
     padding: 0.5em;
 }
 
+footer {
+    font-size: 1rem;
+    padding: 1em;
+}
 
+.item-5, .item-6 {
+    display: none;
+    /* visibility: hidden; */
+}
 
 /* desktop screen */
 @media screen and (min-width: 600px) { 
@@ -28,4 +36,11 @@ header h1 {
         grid-template-columns: 1fr 1fr;
         min-height: 80vh;
     }
+
+    main div{
+        font-size: 2rem;
+    }
+
+    .item-5, .item-6 {
+        display: block;    }   
 }
