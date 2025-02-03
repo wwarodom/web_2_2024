@@ -6,17 +6,28 @@
 }
 
 /* mobile screen */
+header {
+    display: flex;
+    gap: 1em;
+}
+
+header div {
+    font-size: 2rem;
+    line-height: 2em;
+    display: none;
+}
 
 main {
     /* min-height: 70vh; */
 }
 
-main div { 
+main div {
     padding: 2em;
 }
 
 header h1 {
     padding: 0.5em;
+    margin-right: auto;
 }
 
 footer {
@@ -24,23 +35,30 @@ footer {
     padding: 1em;
 }
 
-.item-5, .item-6 {
+.item-5,
+.item-6 {
     display: none;
     /* visibility: hidden; */
 }
 
 /* desktop screen */
-@media screen and (min-width: 600px) { 
+@media screen and (min-width: 600px) {
     main {
         display: grid;
         grid-template-columns: 1fr 1fr;
         min-height: 80vh;
     }
 
-    main div{
+    header div {
+        display: block;
+    }
+
+    main div {
         font-size: 2rem;
     }
 
-    .item-5, .item-6 {
-        display: block;    }   
+    .item-5,
+    .item-6 {
+        display: block;
+    }
 }
