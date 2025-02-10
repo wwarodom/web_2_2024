@@ -18,12 +18,20 @@
             background: linear-gradient(to top right, red, yellow);
         }
 
+        main {
+            display: grid;
+            place-items: center;
+            height: 80vh;
+        }
+
         .box {
             width: 5em;
             height: 5em;
             color: white;
+            text-align: center;
+
             font-size: 2rem;
-            line-height: 2rem; 
+            line-height: 5em; 
            
             /* animation-name: changeColor;
             animation-duration: 2s;
@@ -32,18 +40,24 @@
             animation-iteration-count: infinite;
             animation-direction: alternate-reverse; */
         
-            animation: changeColor 2s ease-in-out 1s infinite alternate-reverse;
+            animation: changeColor 5s ease-in-out 0s infinite alternate;
         }
  
         @keyframes changeColor {
-            from {
-                background: linear-gradient(red, yellow);
-                transform: translateX(80vw);
+            0% {
+                background: red;
+                /* transform: translate(0%, 0%);  */
+                rotate: 0deg;
             }
-
-            to {
-                transform: translateX(0);
-                background: linear-gradient(yellow, red);
+            25% { 
+                background: yellow;
+                /* transform: translate(80vw, 60vh);  */
+                rotate: 180deg;
+            }
+            75% { 
+                background: blue;
+                /* transform: translate(80vw, 60vh);  */
+                rotate: 360deg;
             }
         } 
     </style>
