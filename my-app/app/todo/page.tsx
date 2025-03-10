@@ -4,6 +4,8 @@ const STYLE = "border border-black rounded-md px-2 mb-2"
 
 export default function Todo() {
     const [task, setTask] = useState('')
+    const [editTask, setEditTask] = useState('')
+    const [editId, setEditId] = useState(-1)
     const [tasks, setTasks] = useState<string[]>([
         "Reading",
         "Writing",
@@ -12,6 +14,22 @@ export default function Todo() {
 
     function deleteTask(indexTask: number): void {
         setTasks(tasks.filter((_, index) => index !== indexTask))
+    }
+
+    function editTaskFunction(indexTask: number): void {
+        setEditId(indexTask)
+        setEditTask(tasks[indexTask])
+    }
+
+    function updateTask(): void {
+        if (editId === -1) {
+            return
+        }
+        const newTasks = [...tasks]
+        newTasks[editId] = editTask
+        setTasks(newTasks)
+        setEditId(-1)
+        setEditTask('')
     }
 
     return (
@@ -43,10 +61,27 @@ export default function Todo() {
                                 className={`${STYLE} ml-4`}
                                 onClick={() => deleteTask(+index)}
                             > - </button>
+                            <button
+                                className={`${STYLE} ml-4`}
+                                onClick={() => editTaskFunction(+index)}
+                            > edit </button>
                         </div>
                     ))
                 }
 
+                <div>
+                    EditTask:
+                    <input
+                        className={`${STYLE}`}
+                        type="text"
+                        defaultValue={editTask}
+                        onChange={e => setEditTask(e.target.value)}
+                    />
+                    <button
+                        className={`${STYLE} ml-4`}
+                        onClick={updateTask}
+                    > Save </button>
+                </div>
 
             </div>
         </div>
