@@ -12,21 +12,22 @@ export default function Calculator() {
     const [result, setResult] = useState(0)
 
     const [operator, setOperator] = useState('')
-    const [total, setTotal] = useState(0)
+    const [total, setTotal] = useState(0) 
 
-    function cal(e) {
+    function cal(e: React.ChangeEvent<HTMLButtonElement>) {
+        const value: number = +e.target.value; 
         switch (operator) {
             case '+':
-                setTotal(total + +e.target.value)
+                setTotal(total + value)
                 break
             case '-':
-                setTotal(total - +e.target.value)
+                setTotal(total - value)
                 break
             case '*':
-                setTotal(total * +e.target.value)
+                setTotal(total * value)
                 break
             default:
-                setTotal(+e.target.value)
+                setTotal(value)
         }
     }
 
