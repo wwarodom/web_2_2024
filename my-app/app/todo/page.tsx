@@ -17,7 +17,9 @@ export default function Todo() {
     }
 
     function editTaskFunction(indexTask: number): void {
+        console.log("Edit id: ", indexTask)
         setEditId(indexTask)
+        console.log("Edit task: ", tasks[indexTask])    
         setEditTask(tasks[indexTask])
     }
 
@@ -78,7 +80,7 @@ export default function Todo() {
                     <input
                         className={`${STYLE}`}
                         type="text"
-                        defaultValue={editTask}
+                        value={editTask}
                         onChange={e => setEditTask(e.target.value)}
                     />
                     <button
