@@ -49,6 +49,8 @@ export default function Todo() {
                 >Add task</button>
             </div>
 
+            <hr />
+
             <div>
                 Task: {task} <br />
 
@@ -68,6 +70,8 @@ export default function Todo() {
                         </div>
                     ))
                 }
+
+                <hr />
 
                 <div>
                     EditTask:
