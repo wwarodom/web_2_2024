@@ -10,6 +10,10 @@ export default function Todo() {
         "Coding",
     ])
 
+    function deleteTask(indexTask: number): void {
+        setTasks(tasks.filter((_, index) => index !== indexTask))
+    }
+
     return (
         <div>
             <h1 className="text-3xl font-bold mb-4">Todo</h1>
@@ -29,12 +33,16 @@ export default function Todo() {
 
             <div>
                 Task: {task} <br />
-              
-                Tasks:  
+
+                Tasks:
                 {
-                    tasks.map( (task, index  ) => (
+                    tasks.map((task, index) => (
                         <div key={index}>
-                            {index +1 }. {task}
+                            {index + 1}. {task}
+                            <button
+                                className={`${STYLE} ml-4`}
+                                onClick={() => deleteTask(+index)}
+                            > - </button>
                         </div>
                     ))
                 }
