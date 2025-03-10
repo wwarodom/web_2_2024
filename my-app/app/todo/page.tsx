@@ -4,7 +4,11 @@ const STYLE = "border border-black rounded-md px-2 mb-2"
 
 export default function Todo() {
     const [task, setTask] = useState('')
-    const [tasks, setTasks] = useState<string[]>([])
+    const [tasks, setTasks] = useState<string[]>([
+        "Reading",
+        "Writing",
+        "Coding",
+    ])
 
     return (
         <div>
@@ -25,7 +29,17 @@ export default function Todo() {
 
             <div>
                 Task: {task} <br />
-                Tasks: {tasks}
+              
+                Tasks:  
+                {
+                    tasks.map( (task, index  ) => (
+                        <div key={index}>
+                            {index +1 }. {task}
+                        </div>
+                    ))
+                }
+
+
             </div>
         </div>
     )
