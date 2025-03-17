@@ -25,6 +25,10 @@ export default function Todo2() {
     }
 
     function addTask() {
+        if (formTask.id === -1) {
+            alert("Please check value!")
+            return;
+        }
         const newTask = {
             ...formTask,
             id: (tasks.length) ? tasks[tasks.length - 1].id + 1 : 1
@@ -47,39 +51,51 @@ export default function Todo2() {
     }
 
     function updateTask() {
-        const newTasks = tasks.map((task) => 
-            (task.id === formTask.id)?formTask:task);
+        const newTasks = tasks.map((task) =>
+            (task.id === formTask.id) ? formTask : task);
         setTasks([...newTasks])
         setFormTask({ id: -1, name: '', time: 0 });
     }
 
     return (
-        <div>
+        <div className="container mx-auto p-4">
             <h1 className="text-2xl font-bold">Todo2</h1>
             <h2 className="text-xl font-bold">
                 {formTask.id === -1 ? "Add" : "Update"} task
             </h2>
-            <div className="mb-4">
+            <div className="mb-4 border-2 border-black w-fit p-4 mt-2 rounded-lg shadow-lg">
                 <div className="mb-2">
-                    <label htmlFor="name">Name: </label>
-                    <input
-                        className={STYLE}
-                        type="text" name="name"
-                        value={formTask.name}
-                        onChange={handleInput}
-                    />
+                    <div>
+                        <label htmlFor="name">Name: </label>
+                    </div>
+                    <div>
+                        <input
+                            className={STYLE}
+                            type="text" name="name"
+                            value={formTask.name}
+                            onChange={handleInput}
+                            required
+                        />
+                    </div>
+
                 </div>
                 <div className="mb-2">
-                    <label htmlFor="name">Time: </label>
-                    <input
-                        className={STYLE}
-                        type="number" name="time"
-                        value={formTask.time}
-                        onChange={handleInput}
-                    />
+                    <div>
+                        <label htmlFor="name">Time: </label>
+                    </div>
+                    <div>
+                        <input
+                            className={STYLE}
+                            type="number" name="time"
+                            value={formTask.time}
+                            onChange={handleInput}
+                            required
+                        />
+                    </div>
+
                 </div>
                 <div>
-                    <button className={STYLE}
+                    <button className={`${STYLE} bg-blue-800 text-white rounded-xl hover:text-black hover:bg-blue-200`}
                         onClick={
                             formTask.id === -1 ? addTask : updateTask
                         }
@@ -90,17 +106,17 @@ export default function Todo2() {
 
             </div>
 
-            <h2 className="text-xl font-bold">List</h2>
+            <h2 className="text-xl font-bold">List task</h2>
             <ul>
                 {tasks.map((task, index) =>
                 (<li key={index}>
                     {task.id}. {task.name}: {task.time}
                     <button
-                        className={`${STYLE} m-2 bg-red-800 text-white`}
+                        className={`${STYLE} ml-2 mt-2 rounded-xl bg-red-800 text-white hover:text-black hover:bg-red-200`}
                         onClick={() => deleteTask(task.id)}
                     >delete</button>
                     <button
-                        className={`${STYLE} m-2 bg-red-800 text-white`}
+                        className={`${STYLE} ml-2 mt-2 rounded-xl bg-green-800 text-white hover:text-black hover:bg-green-200`}
                         onClick={() => editTask(task.id)}
                     >edit</button>
                 </li>)
