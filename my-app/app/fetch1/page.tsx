@@ -1,3 +1,4 @@
+import FetcherLink from "@/components/FetcherLink"
 import Image from "next/image"
 
 interface PostType {
@@ -13,23 +14,44 @@ interface ProfileType {
     avatar_url: string
 }
 
-export default async function FetchAPI() {
+async function fetchPosts() {
+    try {
+        const res = await fetch('https://api.vercel.app/blog');
+        return await res.json()
+    } catch (err) {
+        console.log("Error:", err)
+    }
+}
 
-    let data = await fetch('https://api.vercel.app/blog')
-    const posts = await data.json()
+async function fetchProfile() {
+    try {
+        const res = await fetch('https://api.github.com/users/wwarodom')
+        return await res.json()
+    }
+    catch (err) {
+        console.log("Error:", err)
+    }
+}
 
-    data = await fetch('https://api.github.com/users/wwarodom')
-    const profile: ProfileType = await data.json()
+export default async function FetchAPI1() {
+
+    const posts: PostType[] = await fetchPosts()
+    const profile: ProfileType = await fetchProfile()
+
+    if (!posts) return <div>Loading...</div>
 
     return (
         <div>
-            <h1>FetchAPI</h1>
+            <FetcherLink />
+
+            <h1 className="text-xl font-bold">FetchAPI: fetch in Server Component</h1>
 
             <div className="flex mt-4 border-2 border-black m-2 p-2 rounded-xl shadow-lg">
+
                 <div className="mr-4">
-                    <Image 
+                    <Image
                         className="rounded-xl"
-                        src={profile.avatar_url} 
+                        src={profile.avatar_url}
                         alt="avatar"
                         height={100} width={100} />
                 </div>
@@ -59,6 +81,7 @@ export default async function FetchAPI() {
                     </li>
                 ))}
             </ul>
+
         </div>
     )
 }
