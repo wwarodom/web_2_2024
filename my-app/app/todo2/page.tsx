@@ -25,7 +25,7 @@ export default function Todo2() {
     }
 
     function addTask() {
-        if (formTask.id === -1) {
+        if (formTask.name === "" || formTask.time === 0) {
             alert("Please check value!")
             return;
         }
