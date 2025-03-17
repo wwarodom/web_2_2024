@@ -24,10 +24,16 @@ export default function Todo2() {
         setFormTask({...formTask, [name]: value});
     }
 
-    function add() {
+    function addTask() {
         const newTask = { ...formTask, id: tasks.length + 1};
         setTasks([...tasks, newTask]);
         setFormTask({id: -1, name: '', time: 0});
+    }
+
+    function deleteTask(id: number) {
+        console.log("ID: ", id)   
+        const newTasks = tasks.filter( (task) => (task.id !== id) ) 
+        setTasks(newTasks);
     }
 
     return (
@@ -55,7 +61,7 @@ export default function Todo2() {
                 </div>
                 <div>
                     <button className={STYLE}
-                        onClick={add}
+                        onClick={addTask}
                     >Add</button>
                 </div>
 
@@ -66,6 +72,10 @@ export default function Todo2() {
                 {tasks.map((task, index) =>
                 (<li key={index}>
                     {task.id}. {task.name}: {task.time}
+                    <button
+                        className={`${STYLE} m-2 bg-red-800 text-white`}
+                        onClick={() => deleteTask(task.id)}
+                        >delete</button>
                 </li>)
                 )}
             </ul>
