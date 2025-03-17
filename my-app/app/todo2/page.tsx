@@ -46,10 +46,17 @@ export default function Todo2() {
         setFormTask(tasks[index]);
     }
 
+    function updateTask() {
+        const newTasks = tasks.map((task) => 
+            (task.id === formTask.id)?formTask:task);
+        setTasks([...newTasks])
+        setFormTask({ id: -1, name: '', time: 0 });
+    }
+
     return (
         <div>
             <h1 className="text-2xl font-bold">Todo2</h1>
-            <h2 className="text-xl font-bold"> 
+            <h2 className="text-xl font-bold">
                 {formTask.id === -1 ? "Add" : "Update"} task
             </h2>
             <div className="mb-4">
@@ -73,7 +80,9 @@ export default function Todo2() {
                 </div>
                 <div>
                     <button className={STYLE}
-                        onClick={addTask}
+                        onClick={
+                            formTask.id === -1 ? addTask : updateTask
+                        }
                     >
                         {formTask.id === -1 ? "Add" : "Update"}
                     </button>
