@@ -25,7 +25,7 @@ export default function RootLayout({
         className={`${roboto.className} antialiased`}
       >
         <Header />
-        <main className="h-[80vh] m-4">
+        <main className="min-h-[80vh] m-4">
           {children}
         </main>
         <Footer />
