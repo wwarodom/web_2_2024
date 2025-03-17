@@ -25,7 +25,7 @@ export default function Todo2() {
     }
 
     function addTask() {
-        const newTask = { ...formTask, id: tasks.length + 1};
+        const newTask = { ...formTask, id: (tasks.length)?tasks[tasks.length-1].id + 1:1};
         setTasks([...tasks, newTask]);
         setFormTask({id: -1, name: '', time: 0});
     }
