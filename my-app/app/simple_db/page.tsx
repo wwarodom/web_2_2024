@@ -34,6 +34,15 @@ export default async function SimpleDb() {
     revalidatePath("/simple_db")
   }
 
+  async function deleteTask(id: string) {
+    "use server"
+    console.log("Delete task")
+    await prisma.todo.delete({ where: { id } })
+    revalidatePath("/simple_db")
+}
+
+
+
   return (
     <div>
       <h1>Simple DB</h1>
@@ -45,6 +54,7 @@ export default async function SimpleDb() {
             index={index}
             title={todo.title}
             done={todo.done}
+            deleteTask={deleteTask}
             />
         ))
         }
