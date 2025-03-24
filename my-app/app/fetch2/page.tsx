@@ -25,7 +25,7 @@ export default function FetchAPI1() {
     useEffect(() => {
         async function fetchPosts() {
             try {
-                // This API using Proxy to fetch from https://api.vercel.app/blog
+                // This API ussing Proxy to fetch from https://api.vercel.app/blog
                 // Check at app/api/vercel/route.ts
                 const res = await fetch('/api/vercel');
                 const data = await res.json()

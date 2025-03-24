@@ -61,7 +61,7 @@ export default function GitHubProfileFetcher() {
             </button>
 
             {/* Error Message */}
-            {error && <p className="text-red-500 mt-2">{error}</p>}
+            {error && <p className="text-red-500 mt-2">{error}</p>} 
 
             {/* Display Profile Data */}
             {profile && (
