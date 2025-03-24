@@ -1,7 +1,7 @@
+import TodoItem from "@/components/TodoItem"
+import STYLE from "@/constants/style"
 import prisma from "@/utils/db"
 import { revalidatePath } from "next/cache"
-
-const STYLE='border-2 border-black m-2 p-2'
 
 export default async function SimpleDb() {
 
@@ -24,8 +24,8 @@ export default async function SimpleDb() {
     "use server"
     const title = formData.get("title") as string
     const done = formData.get("done") === "on"
-    console.log("title: ", title, "done: ", done? "true" : "false")
-    await prisma.todo.create({  
+    console.log("title: ", title, "done: ", done ? "true" : "false")
+    await prisma.todo.create({
       data: {
         title,
         done,
@@ -39,12 +39,17 @@ export default async function SimpleDb() {
       <h1>Simple DB</h1>
       <ul>
         {todos.map((todo, index) => (
-          <li key={todo.id}>
-            {index + 1}. {todo.title} {todo.done ? "✅" : "❌"}
-          </li>
+          <TodoItem 
+            key={todo.id}
+            id={todo.id}
+            index={index}
+            title={todo.title}
+            done={todo.done}
+            />
         ))
         }
       </ul>
+
 
       <div>
         <h2>Add task</h2>
