@@ -1,5 +1,6 @@
 'use client'
 import STYLE from "@/constants/style"
+import Link from "next/link"
 
 export default function TodoItem({ id, index, title, done, deleteTask, toggleTask }
     : {
@@ -25,6 +26,15 @@ export default function TodoItem({ id, index, title, done, deleteTask, toggleTas
                 defaultChecked={done}
                 onChange={e => toggleTask(id, e.target.checked)}
             />
+
+            <Link
+                className="border-2 border-black mx-1 p-1"
+                href={{
+                    pathname: '/simple_db/edit',
+                    query: { id, title, done },
+                }}>
+                Edit
+            </Link>
         </li>
     )
 }
