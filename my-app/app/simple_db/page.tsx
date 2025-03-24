@@ -39,23 +39,32 @@ export default async function SimpleDb() {
     console.log("Delete task")
     await prisma.todo.delete({ where: { id } })
     revalidatePath("/simple_db")
-}
+  }
 
-
+  async function toggleTask(id: string, done: boolean) {
+    "use server"
+    console.log("Toggle task")
+    await prisma.todo.update({
+      where: { id },
+      data: { done }
+    })
+    revalidatePath("/simple_db")
+  }
 
   return (
     <div>
       <h1>Simple DB</h1>
       <ul>
         {todos.map((todo, index) => (
-          <TodoItem 
+          <TodoItem
             key={todo.id}
             id={todo.id}
             index={index}
             title={todo.title}
             done={todo.done}
             deleteTask={deleteTask}
-            />
+            toggleTask={toggleTask}
+          />
         ))
         }
       </ul>
