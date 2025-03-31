@@ -1,7 +1,7 @@
 "use server"
 
 import prisma from "@/utils/db"
-import hashPassword from "@/utils/hashPassword"
+import hashPassword from "@/utils/hashPassword" 
 
 export default async function registerUser(prevState: unknown ,formData: FormData) { 
     const name = formData.get("name") as string
@@ -11,6 +11,7 @@ export default async function registerUser(prevState: unknown ,formData: FormDat
 
     try {
         await prisma.user.create({data: { name, email, password}})
+        
     }
     catch(e) {
         // console.log(e)
@@ -19,6 +20,7 @@ export default async function registerUser(prevState: unknown ,formData: FormDat
             message: ""
         }
     }
+    
     return {
         error: "",
         message: "User registered successfully"

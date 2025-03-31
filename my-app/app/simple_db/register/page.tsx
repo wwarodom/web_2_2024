@@ -3,6 +3,7 @@
 import STYLE from "@/constants/style";
 import registerUser from "../_actions/registerUser";
 import { useActionState } from "react";
+import { redirect } from "next/navigation";
 
 export default function Register() {
 
@@ -17,6 +18,10 @@ export default function Register() {
                 <p className="text-red-500">{state.error}</p> 
             </div>
         )
+    }
+
+    if ( state.message !== "" ) {
+        redirect("/simple_db")
     }
 
     return (
